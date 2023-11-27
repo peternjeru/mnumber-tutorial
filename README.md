@@ -4,7 +4,7 @@ This is a short tutorial on how to quickly implement MNumber API in your system.
 
 ### NB: This is not a free API.
 
-After [Safaricom PLC](imgs/notice.png)'s recent notice on minimization of data on the M-Pesa API (November 2023), MNumber is an API designed to simplify the adoption process by providing a quick API interface what will support MSISDN hash queries. Thus, instead of working on modification of the underlying system and databases, you just only need plug an API call just after receiving your C2B callback, and get the original mobile number to continue normal transaction processing.
+After [Safaricom PLC](imgs/notice.png)'s recent notice on minimization of data on the M-Pesa API (November 2023), MNumber is an API designed to simplify the adoption process by providing a quick API interface what will support MSISDN hash queries. Thus, instead of working on modification of the underlying system and databases, you just only need plug an API call just after receiving your C2B callback, and get the original mobile number to continue normal transaction processing i.e. **an external Database-as-a-Service for MPesa Partners**.
 
 ## Data Changes
 
