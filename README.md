@@ -180,15 +180,12 @@ Content-Length: 171
 
 {
     "shortcode": "000000",
-    "msisdn_hash": "edc84a0d3664fa1d22f8133093a0218e51c0bbb0ce80a642c7885f4969071445",
-    "first_name": "John",
-    "last_name": "Doe"
+    "msisdn_hash": "edc84a0d3664fa1d22f8133093a0218e51c0bbb0ce80a642c7885f4969071445"
 }
 ```
 
 - The `shortcode` is the Paybill or Store number used for registration in the previous Auth request. It is mandatory
 - The `msisdn_hash` is the hash received in the validation/confirmation callback. It is mandatory.
-- The `first_name` and `last_name` parameters are the names received in the validation/confirmation callbacks. They are both optional, but can be passed in for future reference.
 - The `ApiKey` is the `api_key` value received in the previous Auth callback. This is set in the headers
 - The `ApiTimestamp` is the Unix timestamp in seconds. Its set in the headers.
 - The `ApiPassword` is a concatenation of the SHA256 hash of the (`ApiKey` + `api_secret` + `ApiTimestamp`), the `api_secret` being the value received in the Auth callback above e.g. using values received in Auth callback above, and the timestamp value of `1701078668`, the ApiPassword = `SHA256("00000000-0000-0000-0000-00000000000012b9377cbe7e5c94e8a70d9d23929523d14afa954793130f8a3959c7b849aca81701078668")` which will give you `ca5c5f68cf6ae2270bd6d3a12264e1ed5488b7afca0015ccf67da6a4962d53f7`. Its set in the headers.
@@ -203,16 +200,13 @@ Once sent, the request is processed synchronously, and the result received immed
     "status_message": "Success",
     "shortcode": "000000",
     "msisdn_hash": "8556a495c390f3ba95d2bdf6d06436f2fd09f516531f0a7cd9591c60812fa46d",
-    "msisdn": "254722000000",
-    "first_name": "John",
-    "last_name": "Doe"
+    "msisdn": "254722000000"
 }
 ```
 
 - The `shortcode` will always be present
 - The `msisdn` will always be present
 - The `msisdn_hash` will always be present
-- The `first_name`s and `last_name`s are optional, depending on their availability.
 
 The status_code will always be `"0"` for successful requests.
 
@@ -221,7 +215,7 @@ For a failed request, the format is as below:
 ```json
 {
     "status_code": "404",
-    "status_message": "No Such customer"
+    "status_message": "No such number"
 }
 ```
 
