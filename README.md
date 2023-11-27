@@ -145,6 +145,7 @@ Once the request has been processed asynchronously, a callback is sent to the ca
 {
   "result_code": "0",
   "result_message": "The service request is processed successfully.",
+  "request_id":"cdcfd5f8-9a0d-4082-af95-3fbbf9e62902",
   "shortcode": "000000",
   "username": "initiator",
   "api_key": "00000000-0000-0000-0000-000000000000",
