@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "a323592d-7368-473e-93be-2828eeb9dca7",
+		"name": "MNumber Public API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29504786"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shortcode\": \"000000\",\r\n    \"initiator_username\": \"initiator\",\r\n    \"initiator_password\": \"FslVOQhyuFNuGt5/iHTrwv+jE0zfOq51TS8Ij/FB69bo89jAV7VI4ytFwrpap+v3mSZqE98QyJSjgUXDHOyP2CP34zkuj2CITbGQUVA9ghYrWMIY6nOlJpvqqOlF6GVDMDPRJWeOXDTq4TzK4jqt23uF7Krg++niZNW4jm3AzPlkGDtnaUPbgFGkrp8bidl4azVdwU5N+Nx0RXexLoW9u5nnnGTX6KjcqjS1IF0jnBh4U/nb9ckNGuH/jHISbJoJTAwDvMsaixENK2Wo6XOjWD8vNESF0GlQtK5wzoZYOmLkUJXmJia68iTghTKPbP/4RNvtxJRTjktzNptRvrXreQ==\",\r\n    \"transaction_id\": \"RJQ0000000\",\r\n    \"callback_url\": \"https://example.com/callback\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mnumber.proxyapi.app/mnumber/api/auth",
+					"protocol": "https",
+					"host": [
+						"mnumber",
+						"proxyapi",
+						"app"
+					],
+					"path": [
+						"mnumber",
+						"api",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var timestamp = Math.floor(new Date().getTime() / 1000);\r",
+							"var apiKey = \"00000000-0000-0000-0000-000000000000\";\r",
+							"var apiSecret = \"12b9377cbe7e5c94e8a70d9d23929523d14afa954793130f8a3959c7b849aca8\";\r",
+							"var sha256Hash =  CryptoJS.SHA256(apiKey + apiSecret + timestamp).toString();\r",
+							"\r",
+							"pm.globals.set(\"api_key\", apiKey);\r",
+							"pm.globals.set(\"api_password\", sha256Hash);\r",
+							"pm.globals.set(\"api_timestamp\", timestamp);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiKey",
+						"value": "{{api_key}}",
+						"type": "text"
+					},
+					{
+						"key": "ApiPassword",
+						"value": "{{api_password}}",
+						"type": "text"
+					},
+					{
+						"key": "ApiTimestamp",
+						"value": "{{api_timestamp}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shortcode\": \"000000\",\r\n    \"msisdn_hash\": \"edc84a0d3664fa1d22f8133093a0218e51c0bbb0ce80a642c7885f4969071445\",\r\n    \"first_name\": \"John\",\r\n    \"last_name\": \"Doe\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mnumber.proxyapi.app/mnumber/api/query",
+					"protocol": "https",
+					"host": [
+						"mnumber",
+						"proxyapi",
+						"app"
+					],
+					"path": [
+						"mnumber",
+						"api",
+						"query"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
