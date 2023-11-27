@@ -1,6 +1,6 @@
 # Introduction
 
-This is a short tutorial on how to quickly implement MNumber API in your system. **Please request for access or support via [info.mnumber@gmail.com](mailto:info.mnumber@gmail.com).**
+This is a short tutorial on how to quickly implement MNumber API in your system.
 
 ### NB: This is not a free API.
 
@@ -228,6 +228,6 @@ Note the `status_code`, which will be non-zero for failed requests.
 
 Check out the [MNumber Postman collection](mnumber_api.postman_collection.json) available in the repo to test out the API.
 
-Contact [info.mnumber@gmail.com](mailto:info.mnumber@gmail.com) for queries and support.
+Contact [info.mnumber@gmail.com](mailto:info.mnumber@gmail.com) for queries and support or raise an issue in the [Issues](https://github.com/peternjeru/mnumber-tutorial/issues) section.
 
 Copyright &copy;2023 Novacom Technologies Ltd.
